@@ -1,0 +1,5 @@
+project(asio_http)
+add_definitions(-DASIO_STANDALONE)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../asio/asio/include)
+file(GLOB HTTP_SRC ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+add_executable(asio_http ${HTTP_SRC})

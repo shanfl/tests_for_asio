@@ -1,0 +1,8 @@
+project(asio_test)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../asio/asio/include)
+add_subdirectory(echoserver1)
+add_subdirectory(http)
+add_subdirectory(http_io_service-per-CPU-nooldapi)
+add_subdirectory(http_io_service-per-CPU)
+add_subdirectory(http_one_io_service_with_threadpool)
+add_subdirectory(tcp_server)
