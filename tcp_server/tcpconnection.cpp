@@ -104,7 +104,7 @@ void TcpConnection::send(const void* data, uint32_t length)
 }
 #endif
 
-///ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿?
+///·¢ËÍÊ±Èë¶ÓÁÐ
 void TcpConnection::send(const void *data, uint32_t length)
 {
     if (!m_stopped)
@@ -116,7 +116,7 @@ void TcpConnection::send(const void *data, uint32_t length)
 
             bool isLastComplete = m_bufQueue.empty();
             m_bufQueue.push_back(vec);
-            /// ï¿½ï¿½ï¿½Ã»ï¿½Ð²ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó·ï¿½ï¿½ï¿½
+			/// Èç¹ûÃ»ÓÐ²ÐÓàµÄ°ü£¬¾ÍÖ±½Ó·¢ËÍ
             if (isLastComplete)
             {
                 vector<char> &b(m_bufQueue.front());
@@ -147,7 +147,7 @@ void TcpConnection::send(const std::vector<char> &vec)
     }
 }
 
-///ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½bufferï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ðºï¿½ï¿½ï¿½ï¿½Ä°ï¿?
+///»Øµ÷º¯Êý½«Ö®Ç°µÄbuffer³ö¶ÓÁÐ£¬Í¬Ê±¼ì²éÊÇ·ñÓÐºóÀ´µÄ°ü
 void TcpConnection::handleSend(const asio::error_code &e)
 {
     if (!m_stopped)

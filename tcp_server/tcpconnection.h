@@ -59,7 +59,6 @@ class TcpConnection
     void send(const void *data, uint32_t length);
 
     void TcpConnection::send(const std::vector<char> &vec);
-    ///�ص�������֮ǰ��buffer�����У�ͬʱ����Ƿ��к����İ�
     ///void TcpConnection::handleSend(const asio::error_code &e);
 
     /// Class override callbacks
