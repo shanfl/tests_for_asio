@@ -95,7 +95,7 @@ void BizConnection::onTimeoutFailure(const asio::error_code &e)
     }
     else
     {
-        //handleError("onTimeoutFailure", S_FATAL);
+        handleError("onTimeoutFailure", (int)eErrorType::S_FATAL);
     }
 }
 

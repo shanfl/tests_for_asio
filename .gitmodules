@@ -1,0 +1,3 @@
+[submodule "sigc++"]
+	path = sigc++
+	url = https://github.com/libsigcplusplus/libsigcplusplus.git

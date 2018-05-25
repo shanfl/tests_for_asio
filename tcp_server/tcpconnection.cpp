@@ -58,6 +58,8 @@ void TcpConnection::connect(tcp::endpoint endpoint)
     m_deadline.expires_from_now(std::chrono::seconds(m_connectTimeoutSec));
     m_socket.async_connect(endpoint, std::bind(&TcpConnection::handleConnect, shared_from_this(), std::placeholders::_1));
     m_deadline.async_wait(std::bind(&this_type::checkDeadline, this, std::placeholders::_1));
+
+	//m_socket.is_open()
 }
 
 void TcpConnection::receiveHead()

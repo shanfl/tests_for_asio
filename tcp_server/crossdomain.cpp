@@ -47,11 +47,14 @@ struct CrossDomainImpl : public std::enable_shared_from_this<CrossDomainImpl>
 
     void start_read_some()
     {
+		size_t size;
         m_socket.async_read_some(asio::buffer(m_readbuf, MaxReadSize),
-                                 std::bind(&CrossDomainImpl::handle_read_some, shared_from_this(), std::placeholders::_1));
+                                 std::bind(&CrossDomainImpl::handle_read_some, shared_from_this(), std::placeholders::_1, std::placeholders::_2));
+
+		//asio::async_read(m_socket, asio::buffer(m_readbuf, MaxReadSize), std::bind(&CrossDomainImpl::handle_read_some, this, std::placeholders::_1));
     }
 
-    void handle_read_some(const asio::error_code &err)
+    void handle_read_some(const asio::error_code &err,size_t size)
     {
         if (!err)
         {
@@ -108,6 +111,7 @@ struct CrossDomain::Server
             try
             {
                 tcp::endpoint ep(tcp::endpoint(tcp::v4(), atoi(m_local_port.c_str())));
+				//tcp::endpoint ep(tcp::endpoint(asio::ip::address::from_string("127.0.0.1"), atoi(m_local_port.c_str())));
                 m_acceptor.open(ep.protocol());
                 m_acceptor.bind(ep);
                 m_acceptor.listen();
